@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 /*import font **/
-@charset url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
 @layer components {
+  
   .max-container {
     max-width: 1200px;
     @apply mx-auto px-5 w-full;
@@ -17,6 +17,8 @@
   #root {
     @apply flex flex-col h-full;
   }
+
+
 }
 
 .custom-blur {
@@ -34,7 +36,4 @@
 
 :root {
   font-family: "Play", sans-serif;
-  /* font-size: auto; */
-  /* font-weight: <weight>; */
-  /* font-style: normal; */
 }

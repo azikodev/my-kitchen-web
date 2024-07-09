@@ -10,7 +10,7 @@ function FormInput({ name, label, type, placeholder, className, min, value, onCl
         className={className}
         name={name}
         min={min}
-        required
+        // required
         value={value}
         onClick={onClick}
         onChange={onChange}
