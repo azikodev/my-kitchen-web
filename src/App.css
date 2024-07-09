@@ -1,0 +1,15 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+#weather {
+  /* margin-top: 20px; */
+  font-size: 1.2em;
+}
+.create-recipe-bg {
+  background-image: url("https://s3.envato.com/files/288973506/1-05679.jpg");
+}
+
+
