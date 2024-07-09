@@ -67,7 +67,7 @@ function Navbar() {
               </ul>
             </div>
             <Link to="/" className="btn btn-ghost text-xl m-0">
-              M<span className="text-sm -mr-2 -ml-2 ">YKITCHE</span>N
+             <span>MYKITCHEN</span>
             </Link>
           </div>
           <div className="lg:hidden w-full relative left-[20%] hidden sm:flex md:flex">
