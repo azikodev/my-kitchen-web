@@ -34,8 +34,8 @@ import { ProtectedRoutes } from "./components";
 //actions
 import { action as LoginAction } from "./pages/Login";
 import { action as RegisterAction } from "./pages/Register";
-import { action as CreateAction } from "./pages/Create";
-
+// import { action as CreateAction } from "./pages/Create";
+// 
 //firebase
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebaseConfig";
@@ -60,7 +60,7 @@ function App() {
         {
           path: "/create",
           element: <Create />,
-          action: CreateAction,
+          // action: CreateAction,
         },
         {
           path: "/recipe/:id",
