@@ -6,7 +6,7 @@ import { useCollection } from "../hooks/useCollection";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { addProduct } from "../app/userSlice";
 
 
@@ -30,6 +30,8 @@ function SingleProduct() {
   const product = data?.find((item) => item.id === params.id);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate()
+
   const [productAmount, setProductAmount] = useState(1);
 
   const setAmount = (type) => {
@@ -47,6 +49,7 @@ function SingleProduct() {
 
     dispatch(addProduct(newProdact));
     toast.success("Mahsulot savatga qo'shildi")
+    navigate("/trash")
   };
   return (
     <div>

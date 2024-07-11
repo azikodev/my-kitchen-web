@@ -13,7 +13,13 @@ import {
   Profile,
 } from "../components"
 
+// rrd imports
+import { useSelector } from "react-redux";
+
+
 function Navbar() {
+  const { calculator } = useSelector((state) => state.user);
+  const amount = calculator.amount;
   return (
     <div className="shadow-md">
       <div className="max-container container w-[100%] dark:bg-red-700">
@@ -131,8 +137,12 @@ function Navbar() {
             </ul>
           </div>
           <div className="navbar-end flex gap-4">
-            <SlBasket className="text-[24px] font-bold" />
-
+            <Link to="/trash">
+              <button>
+                <SlBasket className="text-[24px] font-bold" />
+                <span className="badge badge-sm indicator-item absolute top-4 bg-slate-500 text-white">{amount}</span>
+              </button>
+            </Link>
             <Profile />
           </div>
         </div>
