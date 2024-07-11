@@ -15,7 +15,7 @@ function Home() {
           <p className="text-3xl">Hali retsept yaratmadingiz :(</p>
           <Link
             to="/create"
-            className=" mt-[20px] xl:w-96 md:w-80 min-h-[440px] flex items-center justify-center card bg-base-100 w-96 shadow-xl border-2 pt-[14px] rounded-[24px] h-full"
+            className=" mx-auto md:mx-auto mt-[20px] xl:w-96 w-80 md:w-96 lg:md:w-96  min-h-[440px] flex items-center justify-center card bg-base-100  shadow-xl border-2 pt-[14px] rounded-[24px] h-full"
           >
             <button className="border-none flex items-center justify-center flex-col gap-5">
               <BiLayerPlus className="text-[54px]" />

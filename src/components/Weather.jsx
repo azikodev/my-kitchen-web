@@ -46,7 +46,7 @@ const Weather = () => {
         <div id="weather">{error}</div>
       ) : weather ? (
         <div id="weather" className="flex items-center justify-center">
-          <div className="font-[600]">{weather.name}</div>: {weather.main?.temp}°C
+          <div className="font-[600] text-[16px]">{weather.name}</div>: {weather.main?.temp}°C
           <br />
           <div className="w-[40px] h-[40px] overflow-hidden">
             <img
