@@ -1,41 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
-import { changeAmount, removeAll, removeProduct } from "../app/userSlice";
-
-//react icons
 import { MdRemoveShoppingCart } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
-
+import { removeAll, removeProduct, changeAmount } from "../app/userSlice";
 
 function Trash() {
   const { calculator } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [prises, setPrises] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    const total = calculator.products.reduce((sum, product) => sum + (product.price * product.amount), 0);
+    setTotalPrice(total);
+  }, [calculator.products]);
+
+  const setAmount = (type, product) => {
+    const updatedAmount = type === "decrease" ? product.amount - 1 : product.amount + 1;
+    dispatch(changeAmount({ id: product.id, amount: updatedAmount }));
+  };
 
   if (calculator.products.length === 0) {
     return (
-      <div className="m-auto flex justify-center items-center h-full  max-container">
-        <div className="flex  flex-col items-center justify-between h-[300px]">
-          <div className="flex  items-center  gap-4 font-semibold text-[34px]">
-            <span>Savatda hech qanday retsept mavjud emas </span>
-            <span><MdRemoveShoppingCart /></span>
+      <div className="m-auto flex justify-center items-center h-full max-container">
+        <div className="flex flex-col items-center justify-between h-[300px]">
+          <div className="flex items-center gap-4 font-semibold text-[34px]">
+            <span>Savatda hech qanday retsept mavjud emas</span>
+            <MdRemoveShoppingCart />
           </div>
-
-          <img src="https://uzum.uz/static/img/shopocat.490a4a1.png" className="w-[150px]" />
+          <img src="https://uzum.uz/static/img/shopocat.490a4a1.png" className="w-[150px]" alt="Empty Cart" />
           <p>Bosh sahifadagi retseptlardan harid qilishni boshlang</p>
           <Link to="/">
-            <button className="mt-[20px] text-white  btn btn-info">
-              <p>Bosh sahifa </p><IoHome />
+            <button className="mt-[20px] text-white btn btn-info">
+              <p>Bosh sahifa</p>
+              <IoHome />
             </button>
           </Link>
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className="max-w-[1220px] m-auto p-4">
+  }
+
+  return (
+    <div className="max-w-[1220px] m-auto p-4">
+      <div>
         <h1 className="text-[34px] font-semibold">Your Cart</h1>
         <ul>
           {calculator.products.map((product, index) => (
@@ -49,13 +58,36 @@ function Trash() {
                 </div>
               </div>
               <div className="flex items-center">
-                <input
-                  type="number"
-                  value={product.amount}
-                  min="1"
-                  onChange={(e) => dispatch(changeAmount({ id: product.id, amount: Number(e.target.value) }))}
-                  className="w-[50px] text-center border border-gray-200 rounded-md"
-                />
+                <div className="flex gap-3 items-center">
+                  <button
+                    onClick={() =>
+                      dispatch(
+                        changeAmount({
+                          id: product.id,
+                          type: "decrease",
+                        })
+                      )
+                    }
+                    className="btn btn-primary"
+                    disabled={product.amount === 1}
+                  >
+                    -
+                  </button>
+                  <h3>{product.amount}</h3>
+                  <button
+                    onClick={() =>
+                      dispatch(
+                        changeAmount({
+                          id: product.id,
+                          type: "increase",
+                        })
+                      )
+                    }
+                    className="btn btn-primary"
+                  >
+                    +
+                  </button>
+                </div>
                 <FaTrashAlt
                   className="ml-4 cursor-pointer text-red-500"
                   onClick={() => dispatch(removeProduct(product.id))}
@@ -69,13 +101,15 @@ function Trash() {
             className="bg-red-500 text-white p-2 rounded-md"
             onClick={() => dispatch(removeAll())}
           >
-            Clear Cart
+           Savatni tozalash
           </button>
-          <h2 className="text-[20px] font-semibold">Total: ${calculator.price}</h2>
+          <h2 className="text-[20px] font-semibold">Umumiy qiymat: {totalPrice.toLocaleString()} so'm</h2>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+
 
 export default Trash;
