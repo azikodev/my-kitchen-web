@@ -55,7 +55,7 @@ function Login() {
             setShowPassword(true);
           })
           .catch((error) => {
-            toast.error(error.message);
+            toast.error("Sms kod jo'natilmadi");
           });
       }
 

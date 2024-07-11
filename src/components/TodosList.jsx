@@ -51,9 +51,9 @@ function TodosList({ data }) {
               >
                 <button
                   onClick={() => handleDeleteClick(todo.id)}
-                  className="absolute z-50 bg-red-400 p-2 rounded-t-[18px] rounded-b-[18px] w-[40px] flex justify-center right-3 top-3"
+                  className="absolute z-50 text-red-500 p-2 rounded-t-[18px] rounded-b-[18px] w-[40px] flex justify-center right-3 top-3"
                 >
-                  <RiDeleteBin5Line className="text-[15px] text-white text-center" />
+                  <RiDeleteBin5Line className="text-[25px] text-red-500 text-center" />
                 </button>
                 <Link to={`/recipe/${todo.id}`} key={todo.id}>
                   <div className="px-[30px]">

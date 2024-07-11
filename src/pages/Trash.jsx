@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
 import { changeAmount, removeAll, removeProduct } from "../app/userSlice";
 
+
+import { MdRemoveShoppingCart } from "react-icons/md";
+
 function Trash() {
   const { calculator } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -11,14 +14,15 @@ function Trash() {
 
   if (calculator.products.length === 0) {
     return (
-      <div className="m-auto flex justify-center items-center h-[500px] max-w-[1220px]">
-        <div className="flex flex-col text-center justify-center items-center">
-          <img src="" alt="" />
-          <h1 className="font-semibold text-[34px]">Your cart is empty and sad :(</h1>
-          <p className="text-[16px] font-normal text-[#807D7E]">Add something to make it happy!</p>
+      <div className="m-auto flex justify-center items-center h-full  max-container">
+        <div className="flex  flex-col items-center justify-between h-[300px]">
+          <h1 className="font-semibold text-[34px]">Savatda hech qanday retsept mavjud emas :(</h1>
+          <div>
+            <MdRemoveShoppingCart className="text-[90px]" />
+          </div>
           <Link to="/">
-            <button className="mt-[50px] text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 hover:text-white duration-300 font-bold w-[250px] h-[61px] bg-[#8A33FD] rounded-[8px]">
-              Continue Shopping
+            <button className="mt-[20px] text-white  btn btn-accent">
+              Asosiy sahifaga qaytish
             </button>
           </Link>
         </div>
@@ -36,7 +40,7 @@ function Trash() {
                 <div className="ml-4">
                   <h2 className="text-[20px] font-semibold">{product.title}</h2>
                   <p className="text-[16px] text-[#807D7E]">{product.price} so'm</p>
-                  <p className="text-[16px] text-[#807D7E]">{product.method.slice(0,100)}</p>
+                  <p className="text-[16px] text-[#807D7E]">{product.method.slice(0, 100)}</p>
                 </div>
               </div>
               <div className="flex items-center">

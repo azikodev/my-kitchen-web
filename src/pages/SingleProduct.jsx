@@ -48,7 +48,9 @@ function SingleProduct() {
     };
 
     dispatch(addProduct(newProdact));
-    toast.success("Mahsulot savatga qo'shildi")
+    toast.success(
+      <div>{productAmount} ta taom savatchaga qo'shildi</div>
+    )
     navigate("/trash")
   };
   return (
@@ -95,25 +97,25 @@ function SingleProduct() {
                 <Link to="/" className="btn btn-accent ">
                   <button className="flex gap-2 items-center">
                     <MdOutlineHomeWork className="text-[20px]" />
-                    <p >Home</p>
+                    <p className="">Asosiy sahifaga qaytish</p>
                   </button>
                 </Link>
               </div>
               {/* add tu bug */}
               <div className="flex items-center gap-2 sm:mb-0 mb-10">
                 <button
-                  onClick={() => setAmount("increase")}
-                  className="btn btn-secondary"
-                >
-                  +
-                </button>
-                <h3>{productAmount}</h3>
-                <button
                   onClick={() => setAmount("decrease")}
                   className="btn btn-secondary "
                   disabled={productAmount == 1 ? true : false}
                 >
                   -
+                </button>
+                <h3>{productAmount}</h3>
+                <button
+                  onClick={() => setAmount("increase")}
+                  className="btn btn-secondary"
+                >
+                  +
                 </button>
                 <button onClick={addToBag} className="btn btn-primary flex items-center gap-3">
                   Sotib olish
