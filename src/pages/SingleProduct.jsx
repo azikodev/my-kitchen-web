@@ -1,19 +1,28 @@
+//react + hooks
 import React, { useState } from "react";
+
+// custom hoookss
 import { useCollection } from "../hooks/useCollection";
+
+//redux
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { addProduct } from "../app/userSlice";
 
+
+//react icons
 import { GiHotMeal } from "react-icons/gi";
 import { MdOutlineTimer } from "react-icons/md";
 import { IoPricetagsSharp } from "react-icons/io5";
 import { MdOutlineSetMeal } from "react-icons/md";
-
-
+import { MdOutlineHomeWork } from "react-icons/md";
+import { RiFileEditLine } from "react-icons/ri";
+import { SlBasket } from "react-icons/sl";
 
 
 
 function SingleProduct() {
+
   const params = useParams();
   const { user } = useSelector((state) => state.user);
   const { data } = useCollection("todos", ["uid", "==", user.uid]);
@@ -22,13 +31,27 @@ function SingleProduct() {
 
   const [productAmount, setProductAmount] = useState(1);
 
+  const setAmount = (type) => {
+    if (type == "decrease" && productAmount > 1) {
+      setProductAmount((prev) => prev - 1);
+    } else if (type == "increase") {
+      setProductAmount((prev) => prev + 1);
+    }
+  };
+  const addToBag = () => {
+    const newProdact = {
+      ...product,
+      amount: productAmount,
+    };
 
-
+    dispatch(addProduct(newProdact));
+  };
   return (
     <div>
       {product ? (
         <div className="max-container mt-8">
-          <h2 className="text-3xl font-[700]">Retsept haqida to'liq ma'lumot</h2>
+          <div className="text-3xl font-[700] flex items-center gap-3"><p>Retsept haqida to'liq ma'lumot</p><RiFileEditLine />
+          </div>
           <div className="card shadow-xl p-8 border-[2px] mt-12">
             <div className="grid lg:grid-cols-2 items-center">
               <div>
@@ -62,6 +85,37 @@ function SingleProduct() {
               </div>
             </div>
             <p className="mt-8 text-[#826767] text-[18px] leading-8">{product.method}</p>
+            <div className="flex justify-between mt-12">
+              <div>
+                <Link to="/" className="btn btn-accent ">
+                  <button className="flex gap-2 items-center">
+                    <MdOutlineHomeWork className="text-[20px]" />
+                    <p >Home</p>
+                  </button>
+                </Link>
+              </div>
+              {/* add tu bug */}
+              <div className="flex items-center gap-2 sm:mb-0 mb-10">
+                <button
+                  onClick={() => setAmount("increase")}
+                  className="btn btn-secondary"
+                >
+                  +
+                </button>
+                <h3>{productAmount}</h3>
+                <button
+                  onClick={() => setAmount("decrease")}
+                  className="btn btn-secondary "
+                  disabled={productAmount == 1 ? true : false}
+                >
+                  -
+                </button>
+                <button onClick={addToBag} className="btn btn-primary flex items-center gap-3">
+                  Sotib olish
+                  {/* <SlBasket className="text-[18px] font-[700]" /> */}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       ) : (

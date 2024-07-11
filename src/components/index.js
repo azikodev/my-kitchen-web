@@ -8,4 +8,3 @@ export { default as ProtectedRoutes } from "./ProtectedRoutes";
 export { default as TodosList } from "./TodosList";
 export { default as FormCheckbox } from "./FormCheckbox";
 export { default as Profile } from "./Profile";
-export { default as Trash } from "./Trash";

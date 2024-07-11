@@ -1,6 +1,7 @@
 //react icons
 import { FaLayerGroup } from "react-icons/fa6";
 import { LiaCalendarPlusSolid } from "react-icons/lia";
+import { SlBasket } from "react-icons/sl";
 
 //rrd imports
 import { Link } from "react-router-dom";
@@ -10,7 +11,6 @@ import {
   Weather,
   ThemeToggle,
   Profile,
-  Trash,
 } from "../components"
 
 function Navbar() {
@@ -130,8 +130,9 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <div className="navbar-end">
-            <Trash />
+          <div className="navbar-end flex gap-4">
+            <SlBasket className="text-[24px] font-bold" />
+
             <Profile />
           </div>
         </div>

@@ -1,6 +1,10 @@
+//rrd imports
 import { Link } from "react-router-dom";
+
+//firebase
 import { useFirestore } from "../hooks/useFirestore";
 
+//react icons
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiLayerPlus } from "react-icons/bi";
 import { PiTimerBold } from "react-icons/pi";
@@ -13,7 +17,6 @@ function TodosList({ data }) {
 
   return (
     <>
-      {/* <h1 className="mb-8">TodosList</h1> */}
       <div className="max-container grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 content-center items-center justify- gap-24 mx-auto w-full mt-[40px]">
         {data &&
           data.map((todo) => {

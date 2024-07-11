@@ -1,3 +1,7 @@
+//rrd imports
+import { useNavigate } from "react-router-dom";
+
+//firebase
 import {
   addDoc,
   collection,
@@ -6,8 +10,10 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
-import { useNavigate } from "react-router-dom";
+
+//react hot toast
 import toast from "react-hot-toast";
+
 
 export const useFirestore = () => {
   const navigate = useNavigate();
@@ -17,7 +23,7 @@ export const useFirestore = () => {
       ...newTodo,
       createdAt: serverTimestamp(),
     });
-    toast.success("New todo added");
+    toast.success("Retsept muvaffaqiyatli qo'shildi");
     navigate("/");
   };
 
@@ -25,7 +31,7 @@ export const useFirestore = () => {
   //delete todo
   const deleteTodo = async (id) => {
     await deleteDoc(doc(db, "todos", id));
-    toast.success("Todo deleted");
+    toast.success("Retsept muvaffaqiyatli o'chirildi");
   };
   return { addTodo, deleteTodo };
 };
