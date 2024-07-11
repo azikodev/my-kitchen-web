@@ -2,6 +2,8 @@
 import { FaLayerGroup } from "react-icons/fa6";
 import { LiaCalendarPlusSolid } from "react-icons/lia";
 import { SlBasket } from "react-icons/sl";
+import { TiShoppingCart } from "react-icons/ti";
+
 
 //rrd imports
 import { Link } from "react-router-dom";
@@ -139,7 +141,7 @@ function Navbar() {
           <div className="navbar-end flex gap-8 items-center">
             <Link to="/trash">
               <button>
-                <SlBasket className="text-[24px] font-bold" />
+                <TiShoppingCart className="text-[24px] font-bold" />
                 <span className="badge badge-sm indicator-item absolute top-4 bg-slate-500 text-white">{amount}</span>
               </button>
             </Link>

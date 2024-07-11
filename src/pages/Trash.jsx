@@ -66,7 +66,7 @@ function Trash() {
           >
             Clear Cart
           </button>
-          <h2 className="text-[20px] font-semibold">Total: ${calculator.totalPrice}</h2>
+          <h2 className="text-[20px] font-semibold">Total: ${calculator.price}</h2>
         </div>
       </div>
     );
