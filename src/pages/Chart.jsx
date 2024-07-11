@@ -1,8 +1,9 @@
 import React from 'react'
+import { PieChart } from '../components'
 
 function Chart() {
   return (
-    <div>Chart</div>
+    <div><PieChart /></div>
   )
 }
 
