@@ -72,7 +72,7 @@ function Navbar() {
                 </li>
               </ul>
             </div>
-            <Link to="/" className="btn btn-ghost text-xl m-0">
+            <Link to="/" className="btn btn-ghost text-[20px] m-0">
               <span>MYKITCHEN</span>
             </Link>
           </div>
@@ -136,7 +136,7 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <div className="navbar-end flex gap-8">
+          <div className="navbar-end flex gap-8 items-center">
             <Link to="/trash">
               <button>
                 <SlBasket className="text-[24px] font-bold" />
