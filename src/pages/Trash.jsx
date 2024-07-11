@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
 import { changeAmount, removeAll, removeProduct } from "../app/userSlice";
 
-
+//react icons
 import { MdRemoveShoppingCart } from "react-icons/md";
+import { IoHome } from "react-icons/io5";
+
 
 function Trash() {
   const { calculator } = useSelector((state) => state.user);
@@ -16,13 +18,16 @@ function Trash() {
     return (
       <div className="m-auto flex justify-center items-center h-full  max-container">
         <div className="flex  flex-col items-center justify-between h-[300px]">
-          <h1 className="font-semibold text-[34px]">Savatda hech qanday retsept mavjud emas :(</h1>
-          <div>
-            <MdRemoveShoppingCart className="text-[90px]" />
+          <div className="flex  items-center  gap-4 font-semibold text-[34px]">
+            <span>Savatda hech qanday retsept mavjud emas </span>
+            <span><MdRemoveShoppingCart /></span>
           </div>
+
+          <img src="https://uzum.uz/static/img/shopocat.490a4a1.png" className="w-[150px]" />
+          <p>Bosh sahifadagi retseptlardan harid qilishni boshlang</p>
           <Link to="/">
-            <button className="mt-[20px] text-white  btn btn-accent">
-              Asosiy sahifaga qaytish
+            <button className="mt-[20px] text-white  btn btn-info">
+              <p>Bosh sahifa </p><IoHome />
             </button>
           </Link>
         </div>
