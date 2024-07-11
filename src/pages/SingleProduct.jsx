@@ -18,6 +18,7 @@ import { MdOutlineSetMeal } from "react-icons/md";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { RiFileEditLine } from "react-icons/ri";
 import { SlBasket } from "react-icons/sl";
+import toast from "react-hot-toast";
 
 
 
@@ -45,6 +46,7 @@ function SingleProduct() {
     };
 
     dispatch(addProduct(newProdact));
+    toast.success("Mahsulot savatga qo'shildi")
   };
   return (
     <div>

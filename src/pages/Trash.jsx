@@ -34,8 +34,9 @@ function Trash() {
               <div className="flex items-center">
                 <img src={product.imageURL} alt={product.title} className="w-20 h-20 object-cover" />
                 <div className="ml-4">
-                  <h2 className="text-[20px] font-semibold">{product.name}</h2>
+                  <h2 className="text-[20px] font-semibold">{product.title}</h2>
                   <p className="text-[16px] text-[#807D7E]">${product.price}</p>
+                  <p className="text-[16px] text-[#807D7E]">${product.method.slice(0,100)}</p>
                 </div>
               </div>
               <div className="flex items-center">
