@@ -92,7 +92,7 @@ function Navbar() {
                 <div tabIndex={0} className="" role="button">
                   <div className="font-[700] flex gap-[10px] items-center ">
                     <FaLayerGroup />
-                    <p>Sahifalar</p>
+                    <p className="text-[17px]">Sahifalar</p>
                   </div>
                 </div>
                 <ul
@@ -130,13 +130,13 @@ function Navbar() {
 
               <li>
                 <Link to="/create">
-                  <LiaCalendarPlusSolid />
-                  <p className="font-[700]">Retsept Yaratish</p>
+                  <LiaCalendarPlusSolid className="text-[22px]" />
+                  <p className="font-[700] text-[17px]">Retsept Yaratish</p>
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="navbar-end flex gap-4">
+          <div className="navbar-end flex gap-8">
             <Link to="/trash">
               <button>
                 <SlBasket className="text-[24px] font-bold" />

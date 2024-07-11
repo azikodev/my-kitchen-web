@@ -39,7 +39,7 @@ function Profile() {
           role="button"
           className="btn btn-ghost btn-circle avatar"
         >
-          <div className="w-7 rounded-full">
+          <div className="w-10 rounded-full">
             <img
               alt="Tailwind CSS Navbar component"
               src={user?.photoURL}
