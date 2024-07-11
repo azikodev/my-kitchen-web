@@ -15,7 +15,7 @@ import {
 
 function Navbar() {
   return (
-    <div>
+    <div className="shadow-md">
       <div className="max-container container w-[100%] dark:bg-red-700">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
@@ -57,7 +57,7 @@ function Navbar() {
                       <Link to="/chart">Statistika</Link>
                     </li>
                     <li>
-                      <Link to="#">Tanlangan retseptlar</Link>
+                      <Link to="/look">Tanlangan retseptlar</Link>
                     </li>
                   </ul>
                 </li>
@@ -67,7 +67,7 @@ function Navbar() {
               </ul>
             </div>
             <Link to="/" className="btn btn-ghost text-xl m-0">
-             <span>MYKITCHEN</span>
+              <span>MYKITCHEN</span>
             </Link>
           </div>
           <div className="lg:hidden w-full relative left-[20%] hidden sm:flex md:flex">
@@ -99,7 +99,7 @@ function Navbar() {
                       <Link to="/" className="flex flex-col items-start">
                         <h4 className="font-[700] ">Bosh sahifa</h4>
                         <p>
-                          <span className="font-[500]">"MyKitchen"</span>{" "}
+                          <span className="font-[600]">"MyKitchen"</span>{" "}
                           saytidagi barcha retseptlar
                         </p>
                       </Link>
@@ -113,7 +113,7 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="#" className="flex flex-col items-start">
+                      <Link to="/look" className="flex flex-col items-start">
                         <h4 className="font-[700]">Tanlangan retseptlar</h4>
                         <p className="font-[400]">Siz tanlagan retseptlar</p>
                       </Link>

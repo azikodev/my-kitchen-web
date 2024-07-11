@@ -1,21 +1,18 @@
-function FormInput({ name, label, type, placeholder, className, min, value, onClick, onChange, rows, cols }) {
+function FormInput({ name, label, type, placeholder, className, min, value, size, status, onInput, required }) {
   return (
-    <label className="form-control w-full ">
+    <label className="form-control w-full  ">
       <div className="label">
-        <span className="label-text capitalizegit ad">{label}</span>
+        <span className="label-text">{label}</span>
       </div>
       <input
         type={type}
         placeholder={placeholder}
-        className={className}
         name={name}
         min={min}
-        // required
         value={value}
-        onClick={onClick}
-        onChange={onChange}
-        aria-rowspan={rows}
-        aria-colspan={cols}
+        className={`h-11 input input-bordered w-full  ${size ? size : "max-w-[255px]"} `}
+        onInput={onInput}
+        required={required}
       />
     </label>
   );

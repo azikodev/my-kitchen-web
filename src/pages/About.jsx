@@ -1,56 +1,150 @@
+import React, { useEffect, useState } from "react";
+import ReactApexChart from "react-apexcharts";
 import { useSelector } from "react-redux";
+import { useCollection } from "../hooks/useCollection";
+import { Link } from "react-router-dom";
 
 function About() {
-    let user = useSelector((state) => state.user.user);
-    let lastLoginAt = user.createdAt;
-    const lastLoginDate = new Date(parseInt(lastLoginAt));
-    const formatDate = (timestamp) => {
-        if (!timestamp) return "";
+    const { user } = useSelector((state) => state.user);
 
-        const date = new Date(parseInt(timestamp));
-        const options = {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-        };
+    // Ensure you have created the required index for the query
+    const { data } = useCollection(
+        "todos",
+        ["uid", "==", user.uid]
+        // Remove orderBy clause to avoid requiring a composite index
+    );
 
-        return date.toLocaleString(undefined, options);
-    };
+    const [ColumnAbout, setColumnAbout] = useState({
+        series: [
+            {
+                data: [
+                    { x: "2019/01/01", y: 400 },
+                    { x: "2019/04/01", y: 430 },
+                    { x: "2019/07/01", y: 448 },
+                    { x: "2019/10/01", y: 470 },
+                    { x: "2020/01/01", y: 540 },
+                    { x: "2020/04/01", y: 580 },
+                ],
+            },
+        ],
+        options: {
+            chart: { type: "bar", height: 380 },
+            xaxis: { type: "category" },
+        },
+    });
 
-    const formattedDate = formatDate(user.createdAt);
-    const datePart = formattedDate.split(",")[0];
-    const timePart = formattedDate.split(",")[1];
+    const [PieChart, setPieChart] = useState({
+        series: [44, 55, 13, 43, 22],
+        options: {
+            chart: { width: 380, type: "pie" },
+            labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: { width: 200 },
+                        legend: { position: "bottom" },
+                    },
+                },
+            ],
+        },
+    });
 
-    if (user) {
-        return (
-            <div className="flex gap-5 items-center justify-center md:flex-row flex-col ">
-                <div className="">
-                    <img
-                        className="size-52 rounded-full md:ml-24 md:mt-12 lg:m-0 w-20 h-20"
-                        src={user.photoURL}
-                        alt=""
-                    />
-                </div>
-                <div className="pt-10 flex flex-col gap-3 items-center justify-center">
-                    <div className=" shadow  lg:flex-row flex-col flex ">
-                        <div className="stat ">
-                            {/* <div className="stat-figure text-primary"></div> */}
-                            <div className="stat-title">Name:</div>
-                            <div className="stat-value text-clip">{user.displayName}</div>
-                            <div className="stat-desc  font-bold text-xs pt-2">
-                                Email:
+    useEffect(() => {
+        if (data) {
+            // Update Pie Chart data
+            const nationsCount = data.reduce((acc, item) => {
+                if (item.nation) {
+                    acc[item.nation] = (acc[item.nation] || 0) + 1;
+                }
+                return acc;
+            }, {});
+            const labels = Object.keys(nationsCount);
+            const series = Object.values(nationsCount);
+
+            setPieChart({
+                series,
+                options: {
+                    chart: { width: 380, type: "pie" },
+                    labels,
+                    responsive: [
+                        {
+                            breakpoint: 480,
+                            options: {
+                                chart: { width: 200 },
+                                legend: { position: "bottom" },
+                            },
+                        },
+                    ],
+                },
+            });
+
+            // Update Column Chart data
+            const TimeChart = data.map((time) => ({
+                x: time.title,
+                y: time.time,
+            }));
+
+            setColumnAbout({
+                series: [{ data: TimeChart }],
+                options: {
+                    chart: { type: "bar", height: 380 },
+                    xaxis: { type: "category" },
+                },
+            });
+        }
+    }, [data]);
+
+    return (
+        <div className="place-content-center flex text-center content-center mb-10">
+            {data ? (
+                data.length > 0 ? (
+                    <div>
+                        {/* <div className="mb-20 mt-10">
+                            <h1 className="text-2xl mb-2">Nation</h1>
+                            <div id="chart">
+                                <ReactApexChart
+                                    className="flex justify-center place-content-center"
+                                    options={PieChart.options}
+                                    series={PieChart.series}
+                                    type="pie"
+                                    width={600}
+                                />
                             </div>
-                            <div className=" text-clip">{user.email}</div>
+                        </div> */}
+                        <div>
+                            <h1 className="text-2xl mb-2 mt-20">Vaqt bo'yicha statistika</h1>
+                            <div id="chart">
+                                <ReactApexChart
+                                    options={ColumnAbout.options}
+                                    series={ColumnAbout.series}
+                                    type="bar"
+                                    height={350}
+                                    width={1300}
+                                />
+                            </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-        );
-    }
+                ) : (
+                    <div className="m-auto flex justify-center items-center h-[500px] max-w-[1220px]">
+                        <div className="flex flex-col text-center justify-center items-center">
+                            <img src="" alt="" />
+                            <h1 className="font-semibold text-[34px]">
+                                Ayni vaqtda hech qanday retsept yo'q :{`(`}
+                            </h1>
+                            <Link to="/">
+                                <button className="mt-[50px] text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 hover:text-white duration-300 font-bold w-[250px] h-[61px] bg-[#8A33FD] rounded-[8px]">
+                                    Home
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                )
+            ) : (
+                <span className="loading loading-ring w-20 my-60"></span>
+            )}
+        </div>
+    );
 }
 
 export default About;

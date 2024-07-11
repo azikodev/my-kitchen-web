@@ -10,8 +10,7 @@ const Weather = () => {
     const getLocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
+          ({ coords: { latitude, longitude } }) => {
             getWeather(latitude, longitude);
           },
           (error) => {
@@ -23,24 +22,19 @@ const Weather = () => {
       }
     };
 
-    const getWeather = (lat, lon) => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
-
-      fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(
-              "Ob-havo ma'lumotlarini olishda xatolik yuz berdi."
-            );
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setWeather(data);
-        })
-        .catch((error) => {
-          setError(error.message);
-        });
+    const getWeather = async (lat, lon) => {
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+        );
+        if (!response.ok) {
+          throw new Error("Ob-havo ma'lumotlarini olishda xatolik yuz berdi.");
+        }
+        const data = await response.json();
+        setWeather(data);
+      } catch (error) {
+        setError(error.message);
+      }
     };
 
     getLocation();
@@ -52,14 +46,15 @@ const Weather = () => {
         <div id="weather">{error}</div>
       ) : weather ? (
         <div id="weather" className="flex items-center justify-center">
-          <div className="font-[600]">{weather.name}</div>: {weather.main?.temp}
-          °C
+          <div className="font-[600]">{weather.name}</div>: {weather.main?.temp}°C
           <br />
-          <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-            alt={weather.weather[0].description}
-            className="w-[40px] h-[30px]"
-          />
+          <div className="w-[40px] h-[40px] overflow-hidden">
+            <img
+              src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+              alt={weather.weather[0].description}
+              className="object-cover w-full h-full"
+            />
+          </div>
         </div>
       ) : (
         <div id="weather">Yuklanmoqda...</div>

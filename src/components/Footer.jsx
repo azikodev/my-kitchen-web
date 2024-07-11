@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import bgImg from "../assets/image.png";
 
 function Footer() {
   return (

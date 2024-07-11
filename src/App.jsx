@@ -14,11 +14,12 @@ import {
   Create,
   Home,
   Login,
-  Recipe,
   Register,
   Trash,
   Error,
-  About
+  About,
+  SingleProduct,
+  LookProduct
 } from "./pages";
 
 //layouts
@@ -34,8 +35,8 @@ import { ProtectedRoutes } from "./components";
 //actions
 import { action as LoginAction } from "./pages/Login";
 import { action as RegisterAction } from "./pages/Register";
-// import { action as CreateAction } from "./pages/Create";
-// 
+import { action as CreateAction } from "./pages/Create";
+
 //firebase
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebaseConfig";
@@ -60,11 +61,15 @@ function App() {
         {
           path: "/create",
           element: <Create />,
-          // action: CreateAction,
+          action: CreateAction,
+        },
+        {
+          path: "/recipe/",
+          element: <SingleProduct />,
         },
         {
           path: "/recipe/:id",
-          element: <Recipe />,
+          element: <SingleProduct />,
         },
         {
           path: "/trash",
@@ -77,6 +82,10 @@ function App() {
         {
           path: "/about",
           element: <About />,
+        },
+        {
+          path: "/look",
+          element: <LookProduct />,
         },
       ],
     },

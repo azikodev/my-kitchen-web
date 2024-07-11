@@ -66,10 +66,10 @@ function Register() {
         <div className="bg-slate-400/50 lg:w-96 xl:w-96 md:w-96 w-[340px]  mx-auto rounded-[14px] p-[26px] lg:rounded-br-[14px] lg:rounded-tr-[14px] border-none sm:rounded-[14px] lg:rounded-tl-[0] lg:rounded-bl-[0] ">
           <Form method="post" className="flex flex-col items-center gap-1" >
             <h1 className="text-3xl font-semibold">Register</h1>
-            <FormInput type="text" label="Display Name" name="displayName" placeholder="Tom" className="input input-bordered max-w-full h-11" />
-            <FormInput type="url" label="Photo URL" name="photoURL" placeholder="https://picsum.photos/250" className="input input-bordered max-w-full h-11" />
-            <FormInput type="email" label="Email" name="email" placeholder="example@gmail.com" className='input input-bordered max-w-full h-11' />
-            <FormInput type="password" label="Password" name="password" placeholder="●●●●●●" className="input input-bordered max-w-full h-11" />
+            <FormInput size='100%' type="text" label="Display Name" name="displayName" placeholder="Tom" className="input input-bordered max-w-full h-11" />
+            <FormInput size='100%' type="url" label="Photo URL" name="photoURL" placeholder="https://picsum.photos/250" className="input input-bordered max-w-full h-11" />
+            <FormInput size='100%' type="email" label="Email" name="email" placeholder="example@gmail.com" className='input input-bordered max-w-full h-11' />
+            <FormInput size='100%' type="password" label="Password" name="password" placeholder="●●●●●●" className="input input-bordered max-w-full h-11" />
             <div className="w-full mt-5">
               {!isPending && (
                 <button className="btn btn-primary btn-block text-lg">

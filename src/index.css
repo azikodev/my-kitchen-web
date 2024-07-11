@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*import font **/
-
 @layer components {
-  
   .max-container {
     max-width: 1200px;
     @apply mx-auto px-5 w-full;
@@ -17,10 +14,13 @@
   #root {
     @apply flex flex-col h-full;
   }
-
-
 }
 
+:root {
+  font-family: "Play", sans-serif;
+}
+
+/* bg video classnames and styles */
 .custom-blur {
   filter: brightness(80%);
   width: 100%;
@@ -34,6 +34,13 @@
   object-fit: cover;
 }
 
-:root {
-  font-family: "Play", sans-serif;
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

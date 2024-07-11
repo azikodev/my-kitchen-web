@@ -143,12 +143,12 @@ function Error() {
         <h1 className="text-2xl font-[650]">
           Kechirasz, xatolik yuz berdi !!!
         </h1>
-        <button className="btn btn-outline btn-accent">
-          <Link to="/" className="flex flex-row gap-2">
+        <Link to="/" className="gap-2 btn btn-outline btn-accent">
+          <button className="flex items-center gap-2">
             <span>Asosiy sahifaga qaytish </span>
             <span className=""><IoMdHome /></span>
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
       <Footer />
     </div>

@@ -88,20 +88,23 @@ function Login() {
             <h1 className="text-3xl font-semibold">Login</h1>
             <FormInput
               type="email"
-              label="email"
+              label="Email"
               name="email"
               status={errorStatus.email}
               placeholder="example@gmail.com"
               className="input input-bordered max-w-full h-11"
+              size="100%"
             />
             {showPassword && (
               <FormInput
                 type="password"
-                label="password"
+                label="Password"
                 name="password"
                 status={errorStatus.password}
                 placeholder="•••••"
                 className="input input-bordered max-w-full h-11"
+                size="100%"
+
               />
             )}
 
