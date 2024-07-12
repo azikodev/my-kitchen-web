@@ -1,15 +1,19 @@
+//firebase
 import {
   signInWithEmailAndPassword,
   updateProfile,
   sendPasswordResetEmail,
 } from "firebase/auth";
-
 import { auth } from "../firebase/firebaseConfig";
+
+//react + hook
 import { useState } from "react";
 
+//redux
 import { login } from "../app/userSlice";
 import { useDispatch } from "react-redux";
 
+//react hot toast
 import toast from "react-hot-toast";
 
 export const useLogin = () => {

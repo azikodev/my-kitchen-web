@@ -1,3 +1,4 @@
+//firebase
 import { db } from '../firebase/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 

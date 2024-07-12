@@ -1,18 +1,21 @@
+//firebase
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   GoogleAuthProvider,
 } from "firebase/auth";
-
 import { auth } from "../firebase/firebaseConfig";
+import { signInWithPopup } from "firebase/auth";
+
+//react + hooks
 import { useState } from "react";
 
+//redux
 import { login } from "../app/userSlice";
 import { useDispatch } from "react-redux";
 
+//react hot toast
 import toast from "react-hot-toast";
-import { signInWithPopup } from "firebase/auth";
-// import { GoogleAuthProvider } from 'firebase/auth';
 
 export const useRegister = () => {
   const dispatch = useDispatch();

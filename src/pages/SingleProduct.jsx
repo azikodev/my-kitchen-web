@@ -1,7 +1,7 @@
 //react + hooks
 import React, { useState } from "react";
 
-// custom hoookss
+// custom hooks
 import { useCollection } from "../hooks/useCollection";
 
 //redux
@@ -14,10 +14,10 @@ import { addProduct } from "../app/userSlice";
 import { GiHotMeal } from "react-icons/gi";
 import { MdOutlineTimer } from "react-icons/md";
 import { IoPricetagsSharp } from "react-icons/io5";
-import { MdOutlineSetMeal } from "react-icons/md";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { RiFileEditLine } from "react-icons/ri";
-import { SlBasket } from "react-icons/sl";
+
+//react hot toast
 import toast from "react-hot-toast";
 
 

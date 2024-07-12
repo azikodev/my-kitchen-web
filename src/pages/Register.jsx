@@ -18,6 +18,8 @@ import { BiLogInCircle } from "react-icons/bi";
 //bg Video
 import bgImg from "../assets/bg-register.mp4";
 
+
+//action
 export const action = async ({ request }) => {
   let formData = await request.formData();
   let email = formData.get("email");

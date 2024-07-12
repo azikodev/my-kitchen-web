@@ -1,13 +1,14 @@
 //css styles
 import "./Error.css";
 
-
 //components
 import { Navbar, Footer } from "../components";
 
 // react icons
 import { IoMdHome } from "react-icons/io";
 import { IconContext } from "react-icons";
+
+//rrd imports
 import { Link } from "react-router-dom";
 
 function Error() {

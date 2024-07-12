@@ -1,7 +1,16 @@
+//rrd imports
 import { Link } from "react-router-dom";
+
+//custom hooks
 import { useCollection } from "../hooks/useCollection";
+
+//redux
 import { useSelector } from "react-redux";
+
+//componenets
 import { TodosList } from "../components";
+
+//react icons
 import { BiLayerPlus } from "react-icons/bi";
 
 function Home() {

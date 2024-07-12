@@ -1,6 +1,13 @@
+//react + hooks
 import { useState, useEffect } from "react";
+
+//rrd imports
 import { Link } from "react-router-dom";
+
+//custom hooks
 import { useFirestore } from "../hooks/useFirestore";
+
+//react icons
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiLayerPlus } from "react-icons/bi";
 import { PiTimerBold } from "react-icons/pi";

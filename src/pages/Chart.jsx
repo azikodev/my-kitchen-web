@@ -1,4 +1,4 @@
-import React from 'react'
+//components
 import { PieChart } from '../components'
 
 function Chart() {

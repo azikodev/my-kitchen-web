@@ -1,16 +1,18 @@
+//rrd imports
 import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div
-      className="w-full py-5 text-center"
+      className="w-full py-5 text-center bg-slate-100"
     >
-      <p className="">
-        Copyright © 2024 - All rights reserved by{" "}
+      <div className="text-black flex items-center justify-center gap-3">
+        <span>MYKITCHEN {""} created by</span>
+        <span>-</span>
         <Link to="https://t.me/azikodev" className="link">
           Azizbek Ahmadjonov
         </Link>
-      </p>
+      </div>
     </div>
   );
 }

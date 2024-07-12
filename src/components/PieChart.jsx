@@ -1,9 +1,19 @@
+//react + hooks
 import React, { useEffect, useState } from "react";
+
+//react apexchart
 import ReactApexChart from "react-apexcharts";
+
+//redux
 import { useSelector } from "react-redux";
-import { useCollection } from "../hooks/useCollection";
+
+//rrd imports
 import { Link } from "react-router-dom";
 
+//custom hooks
+import { useCollection } from "../hooks/useCollection";
+
+//react icons
 import { RiBarChartGroupedLine } from "react-icons/ri";
 
 

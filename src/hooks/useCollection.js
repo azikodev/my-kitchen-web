@@ -1,4 +1,7 @@
+//react + hooks
 import { useEffect, useState } from "react";
+
+//firebase
 import { collection, query, where, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 

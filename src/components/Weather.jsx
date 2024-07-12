@@ -1,5 +1,7 @@
+//react + hooks
 import React, { useEffect, useState } from "react";
 
+//api key
 const API_KEY = "39a2bcf93a5e2cc9bbf3119ffc0fb61a";
 
 const Weather = () => {

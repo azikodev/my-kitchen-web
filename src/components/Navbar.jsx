@@ -1,9 +1,7 @@
 //react icons
 import { FaLayerGroup } from "react-icons/fa6";
 import { LiaCalendarPlusSolid } from "react-icons/lia";
-import { SlBasket } from "react-icons/sl";
 import { TiShoppingCart } from "react-icons/ti";
-
 
 //rrd imports
 import { Link } from "react-router-dom";
@@ -11,13 +9,11 @@ import { Link } from "react-router-dom";
 //components
 import {
   Weather,
-  ThemeToggle,
   Profile,
 } from "../components"
 
-// rrd imports
+// redux
 import { useSelector } from "react-redux";
-
 
 function Navbar() {
   const { calculator } = useSelector((state) => state.user);

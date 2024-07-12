@@ -1,10 +1,18 @@
+//react + hooks
 import React, { useEffect, useState } from "react";
+
+//redux
 import { useDispatch, useSelector } from "react-redux";
+import { removeAll, removeProduct, changeAmount } from "../app/userSlice";
+
+//rrd imports
 import { Link } from "react-router-dom";
+
+//react icons
 import { FaTrashAlt } from "react-icons/fa";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
-import { removeAll, removeProduct, changeAmount } from "../app/userSlice";
+
 
 function Trash() {
   const { calculator } = useSelector((state) => state.user);

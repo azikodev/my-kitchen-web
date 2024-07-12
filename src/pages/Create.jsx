@@ -1,9 +1,20 @@
+//rrd imports
 import { Form, useActionData } from "react-router-dom";
+
+//redux
 import { useSelector } from "react-redux";
+
+//firebase
 import { useFirestore } from "../hooks/useFirestore";
+
+//components
 import { FormInput } from "../components";
+
+//react + hooks
 import { useEffect } from "react";
 
+
+//action
 export const action = async ({ request }) => {
   let formData = await request.formData();
   let title = formData.get("title");
@@ -66,7 +77,7 @@ function Create() {
             </div>
             <textarea required name="method" type="textarea" label="Tayyorlash usuli" className="textarea mt-2 textarea-bordered textarea-sm  max-w-xl w-full" placeholder="2kg go'shtni qovuring va ...." />
           </label>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-full mt-6">
             <button type="submit" className="btn btn-primary">
               Yaratish
             </button>

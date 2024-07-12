@@ -1,4 +1,4 @@
-import React from 'react'
+//react icons
 import { IoIosGitNetwork } from "react-icons/io";
 
 function LookProduct() {

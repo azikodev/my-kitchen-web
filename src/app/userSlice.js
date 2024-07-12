@@ -1,3 +1,4 @@
+//redux toolkit
 import { createSlice } from "@reduxjs/toolkit";
 
 function dataFromLocalStorage() {
