@@ -10,7 +10,7 @@ function FormInput({ name, label, type, placeholder, className, min, value, size
         name={name}
         min={min}
         value={value}
-        className={`h-11 input input-bordered w-full  ${size ? size : "max-w-[255px]"} `}
+        className={`h-11 input input-bordered w-full  ${size ? size : "max-w-[255px]"} ${status} `}
         onInput={onInput}
         required={required}
       />

@@ -65,11 +65,13 @@ function Login() {
         setErrorStatus((prev) => {
           return { ...prev, email: "input-error" };
         });
+        toast.error("Iltimos emailni kiriting");
       }
       if (!userData.password) {
         setErrorStatus((prev) => {
           return { ...prev, password: "input-error" };
         });
+        toast.error("Iltimos parolingizni kiriting")
       }
     }
   }, [userData]);
@@ -87,7 +89,11 @@ function Login() {
       <div className="lg:w-96 xl:w-96 flex   items-center justify-center mx-auto h-screen md:w-96 w-[360px]">
         <div className="bg-slate-400/50 w-full max-w- mx-auto p-7 rounded-[15px]">
           <Form method="post" className="flex flex-col items-center gap-5">
-            <h1 className="text-3xl font-semibold">Login</h1>
+            {showPassword && (
+              <h1 className="text-3xl font-[700]">Login</h1>
+            )} {!showPassword && (
+              <h1 className="text-3xl font-[700]">Reset Password</h1>
+            )}
             <FormInput
               type="email"
               label="Email"
