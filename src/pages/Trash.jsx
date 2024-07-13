@@ -1,9 +1,8 @@
-//react + hooks
 import React, { useEffect, useState } from "react";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { removeAll, removeProduct, changeAmount } from "../app/userSlice";
+import { removeAll, removeProduct, changeAmount } from "../app/cartSlice";
 
 //rrd imports
 import { Link } from "react-router-dom";
@@ -13,9 +12,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 
-
 function Trash() {
-  const { calculator } = useSelector((state) => state.user);
+  const { calculator } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -23,11 +21,6 @@ function Trash() {
     const total = calculator.products.reduce((sum, product) => sum + (product.price * product.amount), 0);
     setTotalPrice(total);
   }, [calculator.products]);
-
-  const setAmount = (type, product) => {
-    const updatedAmount = type === "decrease" ? product.amount - 1 : product.amount + 1;
-    dispatch(changeAmount({ id: product.id, amount: updatedAmount }));
-  };
 
   if (calculator.products.length === 0) {
     return (
@@ -109,7 +102,7 @@ function Trash() {
             className="bg-red-500 text-white p-2 rounded-md"
             onClick={() => dispatch(removeAll())}
           >
-           Savatni tozalash
+            Savatni tozalash
           </button>
           <h2 className="text-[20px] font-semibold">Umumiy qiymat: {totalPrice.toLocaleString()} so'm</h2>
         </div>
@@ -117,7 +110,5 @@ function Trash() {
     </div>
   );
 }
-
-
 
 export default Trash;

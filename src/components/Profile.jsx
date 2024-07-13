@@ -14,7 +14,7 @@ import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { logout } from "../app/userSlice";
 import ThemeToggle from "./ThemeToggle";
-
+import { addProduct, removeAll, changeAmount, calculateTotal } from "../app/cartSlice"
 //rrd imports
 import { Link } from "react-router-dom";
 

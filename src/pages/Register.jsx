@@ -7,7 +7,6 @@ import { Form, Link, useActionData } from "react-router-dom";
 //components
 import { FormInput } from "../components";
 
-
 //custom hooks
 import { useRegister } from "../hooks/useRegister";
 
