@@ -12,6 +12,10 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 
+//image
+import noRecipe from "../assets/no-recipe.png"
+
+
 function Trash() {
   const { calculator } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -30,7 +34,7 @@ function Trash() {
             <span>Savatda hech qanday retsept mavjud emas</span>
             <MdRemoveShoppingCart />
           </div>
-          <img src="https://uzum.uz/static/img/shopocat.490a4a1.png" className="w-[150px]" alt="Empty Cart" />
+          <img src={noRecipe} className="w-[150px]" alt="Empty Cart" />
           <p>Bosh sahifadagi retseptlardan harid qilishni boshlang</p>
           <Link to="/">
             <button className="mt-[20px] text-white btn btn-info">
