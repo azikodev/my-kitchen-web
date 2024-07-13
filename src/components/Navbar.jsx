@@ -16,7 +16,7 @@ import {
 import { useSelector } from "react-redux";
 
 function Navbar() {
-  const { calculator } = useSelector((state) => state.user);
+  const { calculator } = useSelector((state) => state.cart);
   const amount = calculator.amount;
   return (
     <div className="shadow-md">

@@ -13,6 +13,7 @@ import { useRegister } from "../hooks/useRegister";
 //react icons
 import { FcGoogle } from "react-icons/fc";
 import { BiLogInCircle } from "react-icons/bi";
+import { GiArchiveRegister } from "react-icons/gi";
 
 //bg Video
 import bgImg from "../assets/bg-register.mp4";
@@ -66,15 +67,18 @@ function Register() {
         </div>
         <div className="bg-slate-400/50 lg:w-96 xl:w-96 md:w-96 w-[340px]  mx-auto rounded-[14px] p-[26px] lg:rounded-br-[14px] lg:rounded-tr-[14px] border-none sm:rounded-[14px] lg:rounded-tl-[0] lg:rounded-bl-[0] ">
           <Form method="post" className="flex flex-col items-center gap-1" >
-            <h1 className="text-3xl font-semibold">Register</h1>
-            <FormInput size='100%' type="text" label="Display Name" name="displayName" placeholder="Tom" className="input input-bordered max-w-full h-11" />
-            <FormInput size='100%' type="url" label="Photo URL" name="photoURL" placeholder="https://picsum.photos/250" className="input input-bordered max-w-full h-11" />
+            <div className="text-3xl font-semibold flex items-center gap-2">
+              <p>Ro'yhatdan o'tish</p>
+              <GiArchiveRegister />
+            </div>
+            <FormInput size='100%' type="text" label="Ismingiz" name="displayName" placeholder="Tom" className="input input-bordered max-w-full h-11" />
+            <FormInput size='100%' type="url" label="Avatar rasm" name="photoURL" placeholder="https://picsum.photos/250" className="input input-bordered max-w-full h-11" />
             <FormInput size='100%' type="email" label="Email" name="email" placeholder="example@gmail.com" className='input input-bordered max-w-full h-11' />
-            <FormInput size='100%' type="password" label="Password" name="password" placeholder="●●●●●●" className="input input-bordered max-w-full h-11" />
+            <FormInput size='100%' type="password" label="Parol" name="password" placeholder="●●●●●●" className="input input-bordered max-w-full h-11" />
             <div className="w-full mt-5">
               {!isPending && (
-                <button className="btn btn-primary btn-block text-lg">
-                  <BiLogInCircle />Register</button>
+                <button className="btn btn-primary btn-block text-lg text-white">
+                  <BiLogInCircle />Ro'yhatdan o'tish</button>
               )}
               {isPending && (
                 <button disabled className="btn btn-primary btn-block text-lg">
@@ -106,9 +110,9 @@ function Register() {
             </div>
           )}
           <div className="mt-5 text-center text-white">
-            If you have an account,{" "}
+            Akkaunt bormi, {" "}
             <Link className="link link-primary text-[#39cd54]" to="/login">
-              Login
+              Kirish
             </Link>
           </div>
         </div>

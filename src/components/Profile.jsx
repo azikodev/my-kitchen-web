@@ -27,7 +27,7 @@ function Profile() {
   const logOutProfile = async () => {
     try {
       await signOut(auth);
-      toast.success("See you soon");
+      toast.success("Tizimdan chiqdingiz");
       dispatch(logout());
     } catch (error) {
       toast.error(error.message);

@@ -25,6 +25,11 @@ import { auth } from "../firebase/firebaseConfig";
 //react hot toast
 import { Toaster, toast } from 'sonner'
 
+//react icons
+import { IoIosLogIn } from "react-icons/io";
+import { MdOutlineResetTv } from "react-icons/md";
+import { BiMailSend } from "react-icons/bi";
+
 
 
 //action
@@ -54,7 +59,7 @@ function Login() {
       if (!showPassword && userData?.email) {
         sendPasswordResetEmail(auth, userData.email)
           .then(() => {
-            toast.success("Link send");
+            toast.success("Parolni qayta tiklash manzili emailga jo'natildi");
             setShowPassword(true);
           })
           .catch((error) => {
@@ -64,15 +69,20 @@ function Login() {
 
       if (!userData.email) {
         setErrorStatus((prev) => {
-          return { ...prev, email: "input-error" };
+          return { ...prev, email: "input-error  border-[2px]" };
         });
         toast.warning("Iltimos emailni kiriting");
+      } else {
+        setErrorStatus(true)
       }
+
       if (!userData.password) {
         setErrorStatus((prev) => {
-          return { ...prev, password: "input-error" };
+          return { ...prev, password: "input-error border-[2px]" };
         });
         toast.warning("Iltimos parolingizni kiriting")
+      } else {
+        setErrorStatus(false)
       }
     }
   }, [userData]);
@@ -87,13 +97,19 @@ function Login() {
           src={bgImg}
         ></video>
       </div>
-      <div className="lg:w-96 xl:w-96 flex   items-center justify-center mx-auto h-screen md:w-96 w-[360px]">
+      <div className="lg:w-[400px] xl:w-[400px] flex   items-center justify-center mx-auto h-screen md:w-96 w-[330px]">
         <div className="bg-slate-400/50 w-full max-w- mx-auto p-7 rounded-[15px]">
           <Form method="post" className="flex flex-col items-center gap-5">
             {showPassword && (
-              <h1 className="text-3xl font-[700]">Login</h1>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl font-[700]">Kirish</span>
+                <BiLogInCircle className="text-4xl font-[900]" />
+              </div>
             )} {!showPassword && (
-              <h1 className="text-3xl font-[700]">Reset Password</h1>
+              <div className="text-3xl font-[700] flex gap-2 items-center">
+                <span>Qayta tiklash</span>
+                <MdOutlineResetTv />
+              </div>
             )}
             <FormInput
               type="email"
@@ -107,7 +123,7 @@ function Login() {
             {showPassword && (
               <FormInput
                 type="password"
-                label="Password"
+                label="Parol"
                 name="password"
                 status={errorStatus.password}
                 placeholder="•••••"
@@ -122,11 +138,14 @@ function Login() {
                 <button className="btn btn-primary w-full">
                   {showPassword ? (
                     <>
-                      <BiLogInCircle className="inline-block mr-2" />
-                      <p className="inline-block text-lg">Login</p>
+                      <BiLogInCircle className="text-2xl" />
+                      <p className="text-lg">Kirish</p>
                     </>
                   ) : (
-                    "Send"
+                    <>
+                      <BiMailSend className="text-2xl" />
+                      <p className="text-lg">Jo'natish</p>
+                    </>
                   )}
                 </button>
               )}
@@ -157,23 +176,23 @@ function Login() {
             )}
           </div>
           <div className="mt-5 text-center">
-            <span className="font-bold ">If you don't have an account,</span>{" "}
+            <span className="font-bold ">Ro'yhatdan o'tmaganmisiz,</span>{" "}
             <Link className="link link-primary font-[600]" to="/register">
-              Register
+              Ro'yhatdan o'tish
             </Link>
           </div>
           <div className="mt-5 text-center">
-            <span className="font-bold">Forget password?</span>{" "}
+            <span className="font-bold">Parol esdan chiqdimi?</span>{" "}
             <button
               onClick={() => setShowPassword(!showPassword)}
               className="btn btn-sm btn-ghost"
             >
               {showPassword ? (
                 <span className="text-[14px] underline font-black ">
-                  Reset Password
+                  Qayta tiklash
                 </span>
               ) : (
-                <span>Show password</span>
+                <span className="text-[14px] underline font-black ">Parolni kiritish</span>
               )}
             </button>
           </div>
