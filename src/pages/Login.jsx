@@ -66,13 +66,13 @@ function Login() {
         setErrorStatus((prev) => {
           return { ...prev, email: "input-error" };
         });
-        toast.error("Iltimos emailni kiriting");
+        toast.warning("Iltimos emailni kiriting");
       }
       if (!userData.password) {
         setErrorStatus((prev) => {
           return { ...prev, password: "input-error" };
         });
-        toast.error("Iltimos parolingizni kiriting")
+        toast.warning("Iltimos parolingizni kiriting")
       }
     }
   }, [userData]);
