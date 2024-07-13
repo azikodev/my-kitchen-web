@@ -15,7 +15,8 @@ import { login } from "../app/userSlice";
 import { useDispatch } from "react-redux";
 
 //react hot toast
-import toast from "react-hot-toast";
+import { Toaster, toast } from 'sonner'
+
 
 export const useRegister = () => {
   const dispatch = useDispatch();

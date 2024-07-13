@@ -18,7 +18,8 @@ import { MdOutlineHomeWork } from "react-icons/md";
 import { RiFileEditLine } from "react-icons/ri";
 
 //react hot toast
-import toast from "react-hot-toast";
+import { Toaster, toast } from 'sonner'
+
 
 
 

@@ -12,7 +12,8 @@ import {
 import { db } from "../firebase/firebaseConfig";
 
 //react hot toast
-import toast from "react-hot-toast";
+import { Toaster, toast } from 'sonner'
+
 
 
 export const useFirestore = () => {

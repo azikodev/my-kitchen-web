@@ -3,7 +3,8 @@ import { CgProfile } from "react-icons/cg";
 import { IoIosLogOut } from "react-icons/io";
 
 // react hot toast
-import toast from "react-hot-toast";
+import { Toaster, toast } from 'sonner'
+
 
 //firebase
 import { auth } from "../firebase/firebaseConfig";

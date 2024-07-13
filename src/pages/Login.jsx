@@ -23,7 +23,8 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 
 //react hot toast
-import toast from "react-hot-toast";
+import { Toaster, toast } from 'sonner'
+
 
 
 //action
