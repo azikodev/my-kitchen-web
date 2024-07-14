@@ -60,7 +60,7 @@ function Profile() {
               </button>
             </Link>
           </li>
-          
+
           <li>
             <button
               onClick={logOutProfile}
