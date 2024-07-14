@@ -19,7 +19,7 @@ function Navbar() {
   const { calculator } = useSelector((state) => state.cart);
   const amount = calculator.amount;
   return (
-    <div className="shadow-md">
+    <div className="shadow-md sticky top-0">
       <div className="max-container container w-[100%] dark:bg-red-700">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
