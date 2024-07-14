@@ -2,6 +2,8 @@
 import { FaLayerGroup } from "react-icons/fa6";
 import { LiaCalendarPlusSolid } from "react-icons/lia";
 import { PiShoppingCartFill } from "react-icons/pi";
+import { PiShoppingCartBold } from "react-icons/pi";
+
 
 //rrd imports
 import { Link } from "react-router-dom";
@@ -10,6 +12,7 @@ import { Link } from "react-router-dom";
 import {
   Weather,
   Profile,
+  ThemeToggle,
 } from "../components"
 
 // redux
@@ -69,7 +72,7 @@ function Navbar() {
                 </li>
               </ul>
             </div>
-            <Link to="/" className="btn btn-ghost text-[20px] m-0">
+            <Link to="/" className="btn btn-ghost lg:text-[20px] text-[15px] md:text-[18px] xl:text-[20px] m-0">
               <span>MYKITCHEN</span>
             </Link>
           </div>
@@ -133,12 +136,13 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <div className="navbar-end flex gap-8 items-center">
+          <div className="navbar-end flex lg:gap-6 xl:gap-6 md:gap-4 gap-1 items-center ">
+            <ThemeToggle />
             <Link to="/trash">
-              <button>
-                <PiShoppingCartFill className="text-[24px] font-bold" />
-                <span className="badge badge-sm indicator-item absolute top-4 bg-primary text-white">{amount}</span>
-              </button>
+              <div className="relative">
+                <PiShoppingCartBold className="text-[24px] font-bold" />
+                <span className="badge badge-sm indicator-item absolute top-[-13px] left-[13px] bg-primary text-white ">{amount}</span>
+              </div>
             </Link>
             <Profile />
           </div>

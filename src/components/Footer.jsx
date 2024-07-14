@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div
-      className="w-full py-5 text-center bg-slate-100"
+      className="w-full py-5 text-center bg-base-100 border-t"
     >
-      <div className="text-black flex items-center justify-center gap-3">
+      <div className="text-base-950 flex items-center justify-center gap-3">
         <span>MYKITCHEN {""} created by</span>
         <span>-</span>
         <Link to="https://t.me/azikodev" className="link">

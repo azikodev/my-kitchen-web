@@ -13,6 +13,8 @@ import { BiLayerPlus } from "react-icons/bi";
 import { PiTimerBold } from "react-icons/pi";
 import { IoPricetagsOutline } from "react-icons/io5";
 import { GiMeal } from "react-icons/gi";
+import { FaTrashAlt } from "react-icons/fa";
+
 
 function TodosList({ data }) {
   const { deleteTodo } = useFirestore();
@@ -54,20 +56,20 @@ function TodosList({ data }) {
             return (
               <div
                 key={todo.id}
-                className="relative z-0 card bg-base-100 xl:w-96 md:w-80 shadow-xl border-2 flex items-center pt-[34px] rounded-[24px] h-full justify-between"
+                className="relative z-0 card  bg-base-100 xl:w-[365px] sm:w-80 md:w-96 lg:w-[384px]  shadow-xl border-2 flex items-center pt-[34px] rounded-[24px] h-full justify-between"
               >
                 <button
                   onClick={() => handleDeleteClick(todo.id)}
                   className="absolute z-50 text-red-500 p-2 rounded-t-[18px] rounded-b-[18px] w-[40px] flex justify-center right-3 top-3"
                 >
-                  <RiDeleteBin5Line className="text-[25px] text-red-500 text-center" />
+                  <FaTrashAlt className="text-[20px] text-red-500 text-center" />
                 </button>
                 <Link to={`/recipe/${todo.id}`} key={todo.id}>
                   <div className="px-[30px]">
                     <h3 className="card-title text-[25px] text-bold mb-[10px]">
                       {todo.title}
                     </h3>
-                    <p>
+                    <p className="line-clamp-2">
                       {todo.method
                         ? `${todo.method.slice(0, 120)} ...`
                         : "Hech qanday malumot kiritilmagan"}
@@ -77,7 +79,7 @@ function TodosList({ data }) {
                       <span className="ml-[5px] font-[700] mr-[2px]">Masalliqlar: </span>
                       {todo.ingredients}
                     </p>
-                    <div className="mt-[18px] flex justify-between items-center mb-[32px]">
+                    <div className="md:mt-[18px] mt-[8px] gap-2  grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-2 grid-cols-1 content-between  items-center mb-[32px]">
                       <div className="flex items-center gap-1">
                         <PiTimerBold className="font-[900] text-[15px]" />
                         <div>

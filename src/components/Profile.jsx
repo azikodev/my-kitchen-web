@@ -60,9 +60,7 @@ function Profile() {
               </button>
             </Link>
           </li>
-          <li> <button className="btn btn-outline btn-accent mb-[10px] p-0">
-            <ThemeToggle />
-          </button></li>
+          
           <li>
             <button
               onClick={logOutProfile}
