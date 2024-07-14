@@ -1,7 +1,7 @@
 //react icons
 import { FaLayerGroup } from "react-icons/fa6";
 import { LiaCalendarPlusSolid } from "react-icons/lia";
-import { TiShoppingCart } from "react-icons/ti";
+import { PiShoppingCartFill } from "react-icons/pi";
 
 //rrd imports
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ function Navbar() {
   const { calculator } = useSelector((state) => state.cart);
   const amount = calculator.amount;
   return (
-    <div className="shadow-md sticky top-0">
+    <div className="shadow-md sticky top-0 z-10">
       <div className="max-container container w-[100%] dark:bg-red-700">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
@@ -50,8 +50,7 @@ function Navbar() {
               >
                 <li>
                   <Weather />
-                </li>
-                <li>
+                </li>                <li>
                   <a>Sahifalar</a>
                   <ul className="p-2">
                     <li>
@@ -95,7 +94,7 @@ function Navbar() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content rounded-box z-[1]  max-w-[450px] w-[400px] relative right-[-180px] bg-base-100"
+                  className="dropdown-content rounded-box z-[1]  max-w-[450px] w-[400px] relative right-[-158px] bg-base-100"
                 >
                   <div className="mr-[]"> </div>
                   <div className=" mt-[30px] border-[1px] rounded-[8px] px-[20px] py-[10px]">
@@ -137,8 +136,8 @@ function Navbar() {
           <div className="navbar-end flex gap-8 items-center">
             <Link to="/trash">
               <button>
-                <TiShoppingCart className="text-[24px] font-bold" />
-                <span className="badge badge-sm indicator-item absolute top-4 bg-slate-500 text-white">{amount}</span>
+                <PiShoppingCartFill className="text-[24px] font-bold" />
+                <span className="badge badge-sm indicator-item absolute top-4 bg-primary text-white">{amount}</span>
               </button>
             </Link>
             <Profile />
