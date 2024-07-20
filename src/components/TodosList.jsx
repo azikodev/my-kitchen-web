@@ -116,7 +116,7 @@ function TodosList({ data }) {
         </Link>
       </div>
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-8 rounded-lg">
             <p>O'chirishni xohlaysizmi?</p>
             <div className="mt-4 flex justify-end">
